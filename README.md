@@ -1,6 +1,18 @@
 # NewLang
 Linguagem de programação criada para simplificar tarefas do cotidiano e com um vocabulário agradável para o usuário.
 
+## Executando as ferramentas Flex e Bison para realizar as etapas de Análise Léxica e Sintática. 
+
+Com a execução abaixo é possível efetuar a compilação da linguagem e realizar testes de verificação:
+
+```
+sudo apt install flex
+sudo apt install bison
+git clone https://github.com/RicardoMourao-py/NewLang.git
+cd NewLang/
+./main.sh
+```
+
 ## EBNF
 ```
 PROGRAM = { STATEMENT };
@@ -31,7 +43,7 @@ EXPRESSION = TERM, {("+" | "-" ), TERM};
 
 TERM = FACTOR, {("*" | "/"), FACTOR };
 
-FACTOR = (("+" | "-" | "!"), FACTOR | LITERAL | "(", EXPRESSION, ")" | IDENTIFIER | INPUT_STATEMENT);
+FACTOR = (("+" | "-" | "!"), FACTOR | DIGIT | STRING_LITERAL | BOOL_LITERAL | "(", EXPRESSION, ")" | IDENTIFIER | INPUT_STATEMENT);
 
 INPUT_STATEMENT = "leia", STRING_LITERAL, "em", IDENTIFIER;
 
