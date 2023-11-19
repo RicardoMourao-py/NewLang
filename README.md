@@ -5,31 +5,39 @@ Linguagem de programação criada para simplificar tarefas do cotidiano e com um
 ```
 PROGRAM = { STATEMENT };
 
-BLOCK = { "{", STATEMENT, "}" };
+BLOCK = { "{", "\n", STATEMENT, "}" };
 
-STATEMENT = ( λ | DECLARATION | ASSIGNMENT | IF_STATEMENT | INPUT_STATEMENT | OUTPUT_STATEMENT | COMMENT ), "\n";
+STATEMENT = ( λ | DECLARATION | FOREACH | WHILE |ASSIGNMENT | IF_STATEMENT | OUTPUT_STATEMENT | COMMENT ), "\n";
 
-DECLARATION = "declare", IDENTIFIER, ":", TYPE, [ "inicializado_com", EXPRESSION ];
+DECLARATION = "declare", TYPE, ":", IDENTIFIER, { "recebe", BEXPRESSION };
 
 TYPE = "inteiro" | "decimal" | "texto" | "logico";
 
-ASSIGNMENT = IDENTIFIER, "recebe", EXPRESSION;
+FOREACH = "durante", ASSIGNMENT, "ate", ASSIGNMENT, BLOCK;
 
-IF_STATEMENT = "se", CONDITION, "entao", BLOCK, [ "senao", BLOCK ];
+WHILE = "enquanto", BEXPRESSION, BLOCK;
 
-CONDITION = EXPRESSION, ( "=" | "!=" | ">" | "<" | ">=" | "<=" ), EXPRESSION;
+ASSIGNMENT = IDENTIFIER, "recebe", REXPRESSION;
+
+IF_STATEMENT= "se", BEXPRESSION, "entao", {"senao", BLOCK};
+
+BEXPRESSION = BTERM, {("ou"), BTERM};
+
+BTERM = REXPRESSION, {("e"), REXPRESSION};
+
+REXPRESSION = EXPRESSION, {("==" | ">" | "<"), EXPRESSION};
+
+EXPRESSION = TERM, {("+" | "-" ), TERM};
+
+TERM = FACTOR, {("*" | "/"), FACTOR };
+
+FACTOR = (("+" | "-" | "!"), FACTOR | LITERAL | "(", EXPRESSION, ")" | IDENTIFIER | INPUT_STATEMENT);
 
 INPUT_STATEMENT = "leia", STRING_LITERAL, "em", IDENTIFIER;
 
-OUTPUT_STATEMENT = "mostre", "(", EXPRESSION, ")";
+OUTPUT_STATEMENT = "mostre", "(", BEXPRESSION, ")";
 
 COMMENT = "//", { Any valid character }, "\n";
-
-EXPRESSION = TERM, { ( "+" | "-" | "ou" ), TERM };
-
-TERM = FACTOR, { ( "*" | "/" | "e" ), FACTOR };
-
-FACTOR = ( "+" | "-" ), FACTOR | LITERAL | IDENTIFIER | "(" , EXPRESSION, ")";
 
 LITERAL = INT_LITERAL | FLOAT_LITERAL | STRING_LITERAL | BOOL_LITERAL;
 
@@ -55,9 +63,9 @@ Any valid character = Qualquer caractere válido, incluindo letras, números e c
 ## Exemplo 1
 
 ```
-declare inteiro idade
+declare inteiro: idade
 idade recebe 25
-declare texto nome inicializado_com "Alice"
+declare texto: nome recebe "Alice"
 ```
 
 ## Exemplo 2
@@ -93,7 +101,7 @@ mostre("Olá, ", nome, "!")
 
 ```
 // Isso é um comentário simples
-declare decimal pi recebe 3.14
+declare decimal: pi recebe 3.14
 
 /*
 Este é um comentário
@@ -105,8 +113,8 @@ de várias linhas.
 ## Exemplo 6
 
 ```
-declare inteiro a recebe 5
-declare inteiro b recebe 3
-declare inteiro resultado recebe a + b * 2
+declare inteiro: a recebe 5
+declare inteiro: b recebe 3
+declare inteiro: resultado recebe a + b * 2
 
 ```
