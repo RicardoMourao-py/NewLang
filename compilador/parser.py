@@ -64,13 +64,16 @@ class Parser:
             
         elif Parser.tokenizer.next.type=='VARIABLE':
             Parser.tokenizer.selectNext()
-            if Parser.tokenizer.next.type!="IDENTIFIER":
-                raise ValueError(f"Erro: tipo {Parser.tokenizer.next.type} não é um IDENTIFIER")
-            identifier=VarOp(Parser.tokenizer.next.value,[])
-            Parser.tokenizer.selectNext()
             if Parser.tokenizer.next.type !="TYPE":
                 raise ValueError(f"Erro: tipo {Parser.tokenizer.next.type} diferente do esperado")
             type_value=Parser.tokenizer.next.value
+            Parser.tokenizer.selectNext()
+            if Parser.tokenizer.next.type !="DOISPONTOS":
+                raise ValueError(f"Erro: tipo {Parser.tokenizer.next.type} diferente do esperado")
+            Parser.tokenizer.selectNext()
+            if Parser.tokenizer.next.type!="IDENTIFIER":
+                raise ValueError(f"Erro: tipo {Parser.tokenizer.next.type} não é um IDENTIFIER")
+            identifier=VarOp(Parser.tokenizer.next.value,[])
             Parser.tokenizer.selectNext()
             if Parser.tokenizer.next.type=="ASSIGN":
                 Parser.tokenizer.selectNext()

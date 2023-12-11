@@ -117,5 +117,8 @@ class Tokenizer:
         elif char_atual == '.':
             self.next = Token("CONCAT", ".")
             self.position+=1
+        elif char_atual == ':':
+            self.next = Token("DOISPONTOS", ":")
+            self.position+=1
         else:
             raise ValueError(f"Token inválido: {char_atual}")
