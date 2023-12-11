@@ -38,8 +38,8 @@ char* yyval;
 "-"                     { yyval = strdup(yytext); return MENOS; }
 "*"                     { yyval = strdup(yytext); return VEZES; }
 "/"                     { yyval = strdup(yytext); return DIVIDIDO; }
-"verdadeiro"            { yyval = strdup(yytext); return VERDADEIRO; }
-"falso"                 { yyval = strdup(yytext); return FALSO; }
+"1"                     { yyval = strdup(yytext); return VERDADEIRO; }
+"0"                     { yyval = strdup(yytext); return FALSO; }
 "("                     { yyval = strdup(yytext); return ABRE_PARENTESES; }
 ")"                     { yyval = strdup(yytext); return FECHA_PARENTESES; }
 "{"                     { yyval = strdup(yytext); return ABRE_COLCHETE; }
