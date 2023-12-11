@@ -9,7 +9,6 @@ void yyerror(const char *s);
 %token DECIMAL
 %token TEXTO
 %token DURANTE
-%token ATE
 %token NOT
 %token ENQUANTO
 %token LOGICO
@@ -81,7 +80,7 @@ if_statement: SE bexpression block
             | SE bexpression block SENAO block QUEBRA_DE_LINHA
             ;
 
-durante: DURANTE assigment ATE assigment block QUEBRA_DE_LINHA;
+durante: DURANTE assigment block QUEBRA_DE_LINHA;
 
 enquanto: ENQUANTO bexpression block;
 

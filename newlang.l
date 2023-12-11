@@ -16,7 +16,6 @@ char* yyval;
 "decimal"               { yyval = strdup(yytext); return DECIMAL; }
 "texto"                 { yyval = strdup(yytext); return TEXTO; }
 "durante"               { yyval = strdup(yytext); return DURANTE; }
-"ate"                   { yyval = strdup(yytext); return ATE; }
 "!"                     { yyval = strdup(yytext); return NOT; }
 "enquanto"              { yyval = strdup(yytext); return ENQUANTO; }
 "logico"                { yyval = strdup(yytext); return LOGICO; }
