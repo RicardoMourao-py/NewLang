@@ -16,6 +16,13 @@ cd NewLang/
 ./main.sh
 ```
 
+## TESTANDO LINGUAGEM
+
+```
+cd compilador
+python main.py main.nl
+```
+
 ## EBNF
 ```
 PROGRAM = { STATEMENT };
