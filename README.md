@@ -1,4 +1,7 @@
 # NewLang
+
+![image](https://github.com/RicardoMourao-py/NewLang/assets/72896483/9c5dd24b-8b3d-4977-a699-027ad3eac8ea)
+
 Linguagem de programação criada para simplificar tarefas do cotidiano e com um vocabulário agradável para o usuário.
 
 ## Executando as ferramentas Flex e Bison para realizar as etapas de Análise Léxica e Sintática. 
