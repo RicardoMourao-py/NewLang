@@ -1,6 +1,6 @@
 # NewLang
 
-![image](https://github.com/RicardoMourao-py/NewLang/assets/72896483/9c5dd24b-8b3d-4977-a699-027ad3eac8ea)
+![image](https://github.com/RicardoMourao-py/NewLang/assets/72896483/00be11b2-861e-4b23-bd9f-64b1cb797f33)
 
 Linguagem de programação criada para simplificar tarefas do cotidiano e com um vocabulário agradável para o usuário.
 
