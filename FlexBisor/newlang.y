@@ -17,7 +17,6 @@ void yyerror(const char *s);
 %token ENTAO
 %token SENAO
 %token LEIA
-%token EM
 %token MOSTRE
 %token E
 %token OU

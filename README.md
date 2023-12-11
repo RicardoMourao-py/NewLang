@@ -45,17 +45,15 @@ TERM = FACTOR, {("*" | "/"), FACTOR };
 
 FACTOR = (("+" | "-" | "!"), FACTOR | DIGIT | STRING_LITERAL | BOOL_LITERAL | "(", EXPRESSION, ")" | IDENTIFIER | INPUT_STATEMENT);
 
-INPUT_STATEMENT = "leia", STRING_LITERAL, "em", IDENTIFIER;
+INPUT_STATEMENT =  "leia", "(", ")";
 
 OUTPUT_STATEMENT = "mostre", "(", BEXPRESSION, ")";
 
 COMMENT = "//", { Any valid character }, "\n";
 
-LITERAL = INT_LITERAL | FLOAT_LITERAL | STRING_LITERAL | BOOL_LITERAL;
+LITERAL = INT_LITERAL | STRING_LITERAL | BOOL_LITERAL;
 
 INT_LITERAL = DIGIT, { DIGIT };
-
-FLOAT_LITERAL = DIGIT, { DIGIT }, ".", DIGIT, { DIGIT };
 
 STRING_LITERAL = "'", { Any valid character }, "'";
 
@@ -84,20 +82,22 @@ declare texto: nome recebe "Alice"
 
 ```
 se idade > 18 entao {
-    mostre("Você é maior de idade.")
+    declare texto: alerta recebe "Você é maior de idade."
+    mostre(alerta)
 } senao {
-    mostre("Você é menor de idade.")
+    declare texto: alerta recebe "Você é menor de idade."
+    mostre(alerta)
 }
 ```
 
 ## Exemplo 3
 
 ```
-declare inteiro contador
+declare inteiro: contador
 contador recebe 1
 
-enquanto contador <= 5 {
-    mostre("Contador:", contador)
+enquanto contador < 5 {
+    mostre(contador)
     contador recebe contador + 1
 }
 ```
@@ -105,8 +105,8 @@ enquanto contador <= 5 {
 ## Exemplo 4
 
 ```
-leia("Digite seu nome: " em nome)
-mostre("Olá, ", nome, "!")
+declare inteiro: x_1
+x_1 recebe leia()
 ```
 
 ## Exemplo 5

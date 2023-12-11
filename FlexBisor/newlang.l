@@ -24,7 +24,6 @@ char* yyval;
 "entao"                 { yyval = strdup(yytext); return ENTAO; }
 "senao"                 { yyval = strdup(yytext); return SENAO; }
 "leia"                  { yyval = strdup(yytext); return LEIA; }
-"em"                    { yyval = strdup(yytext); return EM; }
 "mostre"                { yyval = strdup(yytext); return MOSTRE; }
 "e"                     { yyval = strdup(yytext); return E; }
 "ou"                    { yyval = strdup(yytext); return OU; }
