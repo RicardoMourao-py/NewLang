@@ -61,6 +61,14 @@ class Parser:
                     raise ValueError(f"erro {Parser.tokenizer.next.type}")
             else:
                 raise ValueError(f"erro {Parser.tokenizer.next.type}")
+        
+        elif Parser.tokenizer.next.type == "WHILE":
+                Parser.tokenizer.selectNext()
+                condition = Parser.boolExpression() 
+                block = Parser.parseBlock()
+                if Parser.tokenizer.next.type not in ["ENTER","EOF"]:
+                    raise Exception("Error no enquanto")
+                statment = WhileOp("while", [condition, block])
             
         elif Parser.tokenizer.next.type=='VARIABLE':
             Parser.tokenizer.selectNext()
@@ -122,7 +130,7 @@ class Parser:
             Parser.tokenizer.selectNext()
             return result
         else:
-            raise ValueError(f"Erro de sintaxe: Token inesperado {Parser.tokenizer.next.type}")
+            raise ValueError(f"Erro de sintaxe: Token inesperado {Parser.tokenizer.next.value}")
 
         return result
 

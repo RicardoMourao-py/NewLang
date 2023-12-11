@@ -153,6 +153,18 @@ class ForOp(Node):
             # incrementa
             self.children[2].evaluate(symbol_table)
 
+class WhileOp(Node):
+    def __init__(self, value, children): 
+        self.value = value
+        self.children = children
+
+    def evaluate(self, symbol_table):
+        condition, block = self.children
+        while True:
+            if not condition.evaluate(symbol_table)[0]:
+                break
+            block.evaluate(symbol_table)
+
 class IfOp(Node):
     def __init__(self, value, children):
         self.value = value

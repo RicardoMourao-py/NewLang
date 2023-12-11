@@ -31,6 +31,8 @@ class Tokenizer:
                 self.next = Token('PRINT', word)
             elif word == 'durante':
                 self.next = Token('FOR', word)
+            elif word == 'enquanto':
+                self.next = Token('WHILE', word)
             elif word == 'se':
                 self.next = Token('IF', word)
             elif word == 'senao':

@@ -1,3 +1,11 @@
+declare inteiro: contador
+contador recebe 1
+
+enquanto contador < 5 {
+    mostre(contador)
+    contador recebe contador + 1
+}
+
 //teste1
 declare inteiro: x_1
 x_1 recebe leia()
