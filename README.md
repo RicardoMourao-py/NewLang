@@ -25,7 +25,7 @@ DECLARATION = "declare", TYPE, ":", IDENTIFIER, { "recebe", BEXPRESSION };
 
 TYPE = "inteiro" | "decimal" | "texto" | "logico";
 
-FOREACH = "durante", ASSIGNMENT, "ate", ASSIGNMENT, BLOCK;
+FOREACH = "durante", ASSIGNMENT, BLOCK;
 
 WHILE = "enquanto", BEXPRESSION, BLOCK;
 
