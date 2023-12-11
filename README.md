@@ -2,7 +2,7 @@
 
 ![image](https://github.com/RicardoMourao-py/NewLang/assets/72896483/00be11b2-861e-4b23-bd9f-64b1cb797f33)
 
-Linguagem de programação criada para simplificar tarefas do cotidiano e com um vocabulário agradável para o usuário.
+A linguagem NewLang foi criada com o objetivo de fornecer uma sintaxe simples e intuitiva, permitindo que desenvolvedores criem programas de forma eficiente e compreensível. Ela foi projetada com base na ideia de facilitar a programação para iniciantes brasileiros, proporcionando também poder e flexibilidade para usuários mais avançados.
 
 ## Executando as ferramentas Flex e Bison para realizar as etapas de Análise Léxica e Sintática. 
 
