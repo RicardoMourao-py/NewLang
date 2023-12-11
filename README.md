@@ -59,7 +59,7 @@ FLOAT_LITERAL = DIGIT, { DIGIT }, ".", DIGIT, { DIGIT };
 
 STRING_LITERAL = "'", { Any valid character }, "'";
 
-BOOL_LITERAL = "verdadeiro" | "falso";
+BOOL_LITERAL = "1" | "0";
 
 IDENTIFIER = LETTER, { LETTER | DIGIT | "_" };
 
